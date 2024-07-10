@@ -11,3 +11,26 @@ def zip(*args, fillvalue=None):
         raise Exception(
             f"Number( {num} ) can't be floating point or negative ")
     return 1 if num == 0 else num * factorial(num - 1)
+const createLoop = (onStep, timeout) => {
+  let running = false
+
+  const iteration = () => {
+    onStep()
+    if (running) setTimeout(iteration, timeout)
+  }
+
+  const start = () => {
+    running = true
+    iteration()
+  }
+
+  const stop = () => {
+    running = false
+  }
+
+  return { start, stop }
+}
+
+const mainLoop = createLoop(() => {
+  console.log('test')
+}, 100)
