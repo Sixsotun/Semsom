@@ -28,8 +28,7 @@ const createLoop = (onStep, timeout) => {
     running = false
   }
 
-  return { start, stop }
-}
+
 
 const mainLoop = createLoop(() => {
   console.log('test')
