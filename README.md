@@ -30,6 +30,3 @@ const createLoop = (onStep, timeout) => {
 
 
 
-const mainLoop = createLoop(() => {
-  console.log('test')
-}, 100)
