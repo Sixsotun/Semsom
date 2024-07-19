@@ -28,4 +28,22 @@ const createLoop = (onStep, timeout) => {
     running = false
   }
 
+function switchTheme() {
+  wrapper.classList.toggle('dark-theme')
+  wrapper.classList.toggle('light-theme')
 
+  if (wrapper.classList.contains('dark-theme')) {
+    localStorage.setItem('theme', 'dark')
+  } else {
+    localStorage.setItem('theme', 'light')
+  }
+}
+
+if (localStorage.getItem('theme') == 'dark') {
+  themeSwitcher.setAttribute('checked', '')
+  switchTheme()
+} else {
+  themeSwitcher.removeAttribute('checked')
+}
+
+themeSwitcher.addEventListener('click', switchTheme)
